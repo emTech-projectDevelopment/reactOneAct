@@ -1,6 +1,5 @@
 //this is a template folder for you to move into your src folder after you created a boilerplate
 import React, {useState} from "react";
-
 // Starting code for if your group Chose CLASS COMPONENTS
 // export class Dog extends React.Component {
 //   constructor(props) {
@@ -28,6 +27,7 @@ export const Dog = props => {
     const [animalSrc, setAnimalSrc] = useState(animals[0].animalSrc)
     const [animalSound, setAnimalSound] = useState(animals[0].animalSound)
     
+    //console.log(animal)
 
     const thisAlt = animal === animals[0].animal ? animals[0].animal : animals[1].animal;
     const thisSrc = animalSrc === animals[0].animalSrc ? animals[0].animalSrc : animals[1].animalSrc;
@@ -35,22 +35,36 @@ export const Dog = props => {
 
 
     function changeAnimal(){
-        setAnimal(animals[1].animal)
-        setAnimalSrc(animals[1].animalSrc)
-        setAnimalSound(animals[1].animalSound)
-
+        let newAnimal = '';
+        if (animal === 'dog') {
+          newAnimal = 'cat';
+          setAnimal(newAnimal)
+          setAnimalSrc(animals[1].animalSrc)
+          setAnimalSound(animals[1].animalSound)
+        console.log(`Its a little ${newAnimal}!`)
+        } else {
+          newAnimal = 'dog';
+          setAnimal(newAnimal)
+          setAnimalSrc(animals[0].animalSrc)
+          setAnimalSound(animals[0].animalSound)
+          console.log(`Its a little ${newAnimal}!`)
+        }
     }
 
   return (
-    <div>
+    <div className="flexMe">
       <img
+        className="sizeMe"
         alt={thisAlt}
         src={thisSrc}
       ></img>
       <button
         onClick={changeAnimal}
-      >I'm more of a cat person!</button>
+      >{animal === 'dog' ? "I'm more of a cat person!" : "I'm more of a dog person!"}
+      </button>
       <p>{thisAlt}'s go {showAnimalSound}</p>
     </div>
   );
 };
+
+//sorry for the mess, i will comment this later..
