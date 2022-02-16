@@ -21,7 +21,7 @@ export class Dog extends React.Component {
       console.log(newAnimal)
     } else {
       newAnimal = 'dog';
-      this.setState({animal: newAnimal})
+    this.setState({animal: newAnimal})
       console.log(newAnimal)
     }
   }
