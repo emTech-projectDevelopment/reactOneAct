@@ -1,0 +1,78 @@
+:root {
+    --primary: rgba(103, 160, 70, 0.755);
+    --secondary: rgba(255, 111, 0, 0.591);
+    --dark: rgba(40, 25, 25, 0.796);
+    --light: #eee;
+}
+
+.AppWindow {
+    background-color: var(--light);
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 400px;
+    background-color: antiquewhite;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 6px double rgba(55, 52, 47, 0.577);
+    box-shadow: 0px 0px 75px 120px rgba(119, 118, 114, 0.426);
+}
+
+.display {
+    padding: 16px;
+    text-align: right;
+    background-color: var(--light);
+    color: var(--dark);
+    font-size: 24px;
+    font-weight: 300;
+    overflow: scroll;
+}
+.display span {
+    color: #888;
+    font-size: 18px;
+    font-weight: 530;
+}
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 28px;
+    padding: 16px;
+    /*margin: 5px;*/
+    cursor: pointer;
+    transition: 400ms;
+}
+
+button:hover {
+    opacity: 0.9;
+    font-weight: 300;
+    text-shadow: 0px -10px 12px rgba(255, 89, 0, 0.728);
+}
+
+.operators {
+    display: flex;
+}
+.operators button {
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    background-color: var(--primary);
+}
+.operators button:hover {
+    text-shadow: 0px -10px 12px rgb(121, 84, 51);
+}
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+}
+.digits button {
+    flex: 1 1 33.333%;
+    max-width: 33.333%;
+    background-color: var(--dark);
+}

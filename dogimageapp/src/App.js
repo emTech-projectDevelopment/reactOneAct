@@ -1,13 +1,15 @@
 //import logo from './logo.svg';
 import './App.css';
+import './CalculatorApp.css';
 //import {Dog} from './Dog'
-import {UsingApi} from './UsingApi'
+//import {UsingApi} from './UsingApi'
+import {Calculator} from './CalculatorApp';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
+        {/*This is the React activity>>> <img src={logo} className="App-logo" alt="logo" />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,7 +19,8 @@ function App() {
           Learn React
         </a>
         <Dog/> */}
-        <UsingApi/>
+        {/*This is UsingApi Project>>>  <UsingApi/>*/}
+        <Calculator/>{/* This is the CalculatorApp */}
       </header>
     </div>
   );
