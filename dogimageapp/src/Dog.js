@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 
 // CLASS COMPONENTS
@@ -49,47 +49,71 @@ import React, { useState , useEffect } from "react";
 // FUNCTIONAL COMPONENTS
 export const Dog = props => {
   const animals = [
-    {animal:'dog', animalSrc:'https://www.dogfoodadvisor.com/wp-content/uploads/2019/08/golden-retriever-puppy-343x335.jpg', animalSound:'Woof!'},
-    {animal:'cat', animalSrc:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cat_Janna.jpg/150px-Cat_Janna.jpg', animalSound: 'Purr!'}
-];
+    { animal: 'dog', animalSrc: 'https://www.dogfoodadvisor.com/wp-content/uploads/2019/08/golden-retriever-puppy-343x335.jpg', animalSound: 'Woof!' },
+    { animal: 'cat', animalSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cat_Janna.jpg/150px-Cat_Janna.jpg', animalSound: 'Purr!' }
+  ];
 
-    function changeDog() {
-      console.log('changeDog click event')
+  const colors = {
+    LBL: 'lightBlue',
+    DEF: '#282c34'
+  }
+
+  const [animal, setAnimal] = useState(animals[0].animal)
+  const [animalSrc, setAnimalSrc] = useState(animals[0].animalSrc)
+  const [animalSound, setAnimalSound] = useState(animals[0].animalSound)
+
+  const [backgroundColor, setBackgroundColor] = useState(colors.DEF)
+
+
+  useEffect(() => { console.log('This is a useEffect event will fire on every re-render') });
+ 
+  useEffect(() => {
+    console.log('useEffect will only run first render due to assignment of empty array >>')
+  }, [])
+ 
+  useEffect(() => {
+    console.log('This is a useEffect event called on the first and every re-render');
+    alert('useEffect activated on new render of animal object');
+  }, [animal]);
+
+  useEffect(() => {
+    console.log('color useeffect was activated')
+    }, [backgroundColor]);
+
+
+  const appBackgroundLightBlue = () => { document.querySelector('.App').style.backgroundColor = `${colors.LBL}` };
+  const appBackgroundDefault = () => { document.querySelector('.App').style.backgroundColor = `${colors.DEF}` };
+
+  function changeDog() {
+    console.log('changeDog click event')
+    setBackgroundColor(appBackgroundLightBlue())
+  }
+
+  function changeCat() {
+    console.log('changeCat click event')
+    setBackgroundColor(appBackgroundDefault())
+  }
+
+  const thisAlt = animal === animals[0].animal ? animals[0].animal : animals[1].animal;
+  const thisSrc = animalSrc === animals[0].animalSrc ? animals[0].animalSrc : animals[1].animalSrc;
+  const showAnimalSound = animalSound === animals[0].animalSound ? animals[0].animalSound : animals[1].animalSound;
+
+  function changeAnimal() {
+    let newAnimal = '';
+    if (animal === 'dog') {
+      newAnimal = 'cat';
+      setAnimal(newAnimal)
+      setAnimalSrc(animals[1].animalSrc)
+      setAnimalSound(animals[1].animalSound)
+      console.log(`Its a little ${newAnimal}!`)
+    } else {
+      newAnimal = 'dog';
+      setAnimal(newAnimal)
+      setAnimalSrc(animals[0].animalSrc)
+      setAnimalSound(animals[0].animalSound)
+      console.log(`Its a little ${newAnimal}!`)
     }
-
-    function changeCat() {
-      console.log('changeCat click event')
-    }
-
-    const [animal, setAnimal] = useState(animals[0].animal)
-    const [animalSrc, setAnimalSrc] = useState(animals[0].animalSrc)
-    const [animalSound, setAnimalSound] = useState(animals[0].animalSound)
-
-    useEffect(()=>{console.log('This is a useEffect event will fire on every re-render')});
-    useEffect(()=>{console.log('This is a useEffect event called on the child state hook re-render')},[animal]);
-
-    //console.log(animal)
-
-    const thisAlt = animal === animals[0].animal ? animals[0].animal : animals[1].animal;
-    const thisSrc = animalSrc === animals[0].animalSrc ? animals[0].animalSrc : animals[1].animalSrc;
-    const showAnimalSound = animalSound === animals[0].animalSound ? animals[0].animalSound : animals[1].animalSound;
-
-    function changeAnimal(){
-        let newAnimal = '';
-        if (animal === 'dog') {
-          newAnimal = 'cat';
-          setAnimal(newAnimal)
-          setAnimalSrc(animals[1].animalSrc)
-          setAnimalSound(animals[1].animalSound)
-          console.log(`Its a little ${newAnimal}!`)
-        } else {
-          newAnimal = 'dog';
-          setAnimal(newAnimal)
-          setAnimalSrc(animals[0].animalSrc)
-          setAnimalSound(animals[0].animalSound)
-          console.log(`Its a little ${newAnimal}!`)
-        }
-    }
+  }
 
   return (
     <div className="flexMe">
