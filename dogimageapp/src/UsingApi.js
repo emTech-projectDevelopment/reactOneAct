@@ -21,10 +21,18 @@ export const UsingApi = () => {
             <h1 className='resourceHeading'>{resourceType}</h1>
             <div className='outputField'>
             {items.map(item=>{
-            return <pre className='preField' key=''>{JSON.stringify(item)}</pre>
+            return <pre className='preField' key={items.indexOf(item)}>{JSON.stringify(item)}</pre>
         })}
             </div>
         </div>
-        
     )
 }
+
+{/*}    // let loopKey = 0;
+    // for ( let i=0; i<items.length; i++) {
+    //     loopKey += i;
+    //     if (loopKey === loopKey){
+    //         loopKey += 1;
+    //     }
+    // }
+// console.log(loopKey)*/}

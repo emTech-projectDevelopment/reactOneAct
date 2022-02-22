@@ -18,10 +18,29 @@
     width: 100%;
     max-width: 400px;
     background-color: antiquewhite;
-    border-radius: 16px;
+    border-radius: .75rem;
     overflow: hidden;
     border: 6px double rgba(55, 52, 47, 0.577);
     box-shadow: 0px 0px 75px 120px rgba(119, 118, 114, 0.426);
+    animation: corners 2.4s 0s ease-in infinite;
+}
+
+@keyframes corners {
+    5%{
+        box-shadow: 0px 0px 20px 15px white;
+    }
+    33.333%{
+        border-radius: 120px 0px;
+        box-shadow: 0px 0px 75px 120px white;
+    }
+    66.666%{
+        transform: scale(.8);
+        border: 1rem double rgba(55, 52, 47, 0.577);
+    }
+    80%{
+        border-radius: 0px 120px;
+
+    }
 }
 
 .display {
