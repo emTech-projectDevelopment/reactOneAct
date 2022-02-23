@@ -18,6 +18,10 @@
   color: white;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .App-logo {
   height: 30vmin;
   pointer-events: none;

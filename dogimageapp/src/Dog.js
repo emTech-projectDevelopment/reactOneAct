@@ -73,7 +73,6 @@ export const Dog = props => {
  
   useEffect(() => {
     console.log('This is a useEffect event called on the first and every re-render');
-    alert('useEffect activated on new render of animal object');
   }, [animal]);
 
   useEffect(() => {

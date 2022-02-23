@@ -1,12 +1,13 @@
 :root {
     --primary: rgba(103, 160, 70, 0.755);
+    --hiAerim: pink;
     --secondary: rgba(255, 111, 0, 0.591);
     --dark: rgba(40, 25, 25, 0.796);
     --light: #eee;
 }
 
 .AppWindow {
-    background-color: var(--light);
+    background-color: var(--hiAerim);
     display: flex;
     min-width: 100vw;
     min-height: 100vh;
@@ -22,7 +23,7 @@
     overflow: hidden;
     border: 6px double rgba(55, 52, 47, 0.577);
     box-shadow: 0px 0px 75px 120px rgba(119, 118, 114, 0.426);
-    animation: corners 2.4s 0s ease-in infinite;
+    animation: corners 2.4s 0s ease-in 1;
 }
 
 @keyframes corners {

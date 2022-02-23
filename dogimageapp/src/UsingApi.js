@@ -21,7 +21,7 @@ export const UsingApi = () => {
             <h1 className='resourceHeading'>{resourceType}</h1>
             <div className='outputField'>
             {items.map(item=>{
-            return <pre className='preField' key={items.indexOf(item)}>{JSON.stringify(item)}</pre>
+            return <pre className='preField' key={items.indexOf(item)}>{items.indexOf(item) + JSON.stringify(item)}</pre>
         })}
             </div>
         </div>
